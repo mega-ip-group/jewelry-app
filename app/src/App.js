@@ -22,7 +22,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
-      <Footer />
+      <div className="footer__container">
+        <Footer />
+      </div>
     </div>
   );
 }
