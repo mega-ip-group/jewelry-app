@@ -7,9 +7,12 @@ function HeaderList() {
   const LoginHandler = () => {
     navigate("/login");
   };
+  const HomeHandler = () => {
+    navigate("/");
+  };
   return (
     <ul className="header__list">
-      <li>home</li>
+      <li onClick={HomeHandler}>home</li>
       <li>Shop</li>
       <li>Dashboard</li>
       <li>Contact</li>
