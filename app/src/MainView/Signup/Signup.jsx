@@ -1,25 +1,45 @@
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
-import "./Login.css";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
-
-function Login() {
+function Signup() {
+  const [fName, setFname] = useState("");
+  const [lName, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const onSumbitHandler = (e) => {
     e.preventDefault();
   };
+  //   firstName: String,
+  //   lastName: String,
+  //   email: String,
+  //   phone: String,
+  //   password: String,
   return (
     <form onSubmit={onSumbitHandler} className="login">
       <div className="login__header">
         <img className="login__logo" src={logo} alt="logo" />
         <Typography className="login__header_text" variant="h6" gutterBottom>
-          Login
+          Sign Up
         </Typography>
       </div>
-
+      <TextField
+        id="firstname"
+        label="First Name"
+        variant="standard"
+        onChange={(e) => {
+          setFname(e.target.value);
+        }}
+      />
+      <TextField
+        id="lastname"
+        label="Last Name"
+        variant="standard"
+        onChange={(e) => {
+          setLname(e.target.value);
+        }}
+      />
       <TextField
         id="email"
         label="Email"
@@ -38,16 +58,20 @@ function Login() {
         }}
       />
       <input
-        disabled={!password || !email}
+        disabled={!fName || !lName || !password || !email}
         type="submit"
-        className={!password || !email ? "not_work_login" : "login__button"}
-        value="Login"
+        className={
+          !fName || !lName || !password || !email
+            ? "not_work_login"
+            : "login__button"
+        }
+        value="Sign Up"
       />
       <Typography variant="subtitle1" gutterBottom>
-        have an account? <Link to="/signup">create an account</Link>
+        already have an account? <Link to="/login">Login</Link>
       </Typography>
     </form>
   );
 }
 
-export default Login;
+export default Signup;
