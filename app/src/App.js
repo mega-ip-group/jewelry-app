@@ -4,9 +4,11 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./MainView/Login/Login";
 import React from "react";
 import Footer from "./Components/Genral/Footer/Footer";
+import Banner from "./Components/Genral/Banner/Banner";
 function App() {
   function Home() {
-    return <React.Fragment>I'm at home</React.Fragment>;
+    return <React.Fragment></React.Fragment>;
+    
   }
   return (
     <div className="app">
@@ -15,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+      <Banner/>
       <Footer />
     </div>
   );
