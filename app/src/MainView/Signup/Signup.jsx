@@ -1,25 +1,68 @@
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
+import MuiAlert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
+
+const Alert = forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+const URl = "http://localhost:3002";
 function Signup() {
   const [fName, setFname] = useState("");
   const [lName, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [openNotifcation, setOpenNotifcation] = useState(false);
+  const [notification, setNotifcation] = useState("");
+  const [error, setError] = useState("");
+
   const onSumbitHandler = (e) => {
     e.preventDefault();
+    console.log(URl + "/user/signup");
+    fetch(URl + "/user/signup", {
+      method: "POST", // or 'PUT',
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: fName,
+        lastName: lName,
+        email: email,
+        password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setOpenNotifcation(true);
+        if (data.ok) {
+          setError("success");
+        } else {
+          setError("error");
+        }
+        const timer = setTimeout(() => {
+          setOpenNotifcation(false);
+          console.log("ehab");
+          clearTimeout(timer);
+        }, 2000);
+        setNotifcation(data.message);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
-  //   firstName: String,
-  //   lastName: String,
-  //   email: String,
-  //   phone: String,
-  //   password: String,
   return (
     <form onSubmit={onSumbitHandler} className="login">
       <div className="login__header">
         <img className="login__logo" src={logo} alt="logo" />
+        <Snackbar open={openNotifcation} autoHideDuration={6000}>
+          <Alert severity={error} sx={{ width: "100%" }}>
+            {notification}
+          </Alert>
+        </Snackbar>
         <Typography className="login__header_text" variant="h6" gutterBottom>
           Sign Up
         </Typography>
