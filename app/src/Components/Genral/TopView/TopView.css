@@ -10,26 +10,39 @@
 }
 
 .deal-card {
-    background: url('../../../images/sw1.png');
+    /* background: url('../../../images/sw1.png'); */
     margin-top: 20px;
-    
-    display: flex;
-    justify-content: space-between;
+    background-repeat: no-repeat;
 }
 
 .fashion-card {
-    background: url('../../../images/sw2.png');
-    /* background-repeat: no-repeat; */
-    display: flex;
-    justify-content: space-between;
-
+    /* background: url('../../../images/sw2.png'); */
+    background-repeat: no-repeat;
     margin-top: 20px;
+    border: 10px;
+    margin-left: 50px;
 
 
 }
 
 .my-5{
+    display: flex;
     justify-content: space-between;
+    margin-top: 100px;
+    height: 500px;
+}
+
+/* .my-5 >div >img{
+    object-fit: contain;
+
+} */
+
+
+.img1{
+    width: 110%;
+}
+.img2{
+    width: 102%;
 }
 
 .btnroundedpy-2text-white{
@@ -51,3 +64,9 @@
     border-radius: 10px;
 
 }
+
+.btnroundedpy-2bg-lighttext-dark:hover{
+    background-color: #e04faa;
+}
+.btnroundedpy-2text-white:hover{
+    background-color: rgb(231, 182, 46);}
