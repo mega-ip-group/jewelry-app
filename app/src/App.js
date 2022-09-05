@@ -6,16 +6,18 @@ import Signup from "./MainView/Signup/Signup";
 import React from "react";
 import Footer from "./Components/Genral/Footer/Footer";
 import Banner from "./Components/Genral/Banner/Banner";
-// import Service from "./Components/Genral/Service/Service";
+import Service from "./Components/Genral/Service/Service";
 import Blog from "./Components/Genral/Blog/Blog";
 import TopView from "./Components/Genral/TopView/TopView";
+import MoreInfo from "./Components/Genral/MoreInfo/MoreInfo";
 function App() {
   function Home() {
     return (
       <React.Fragment>
         <Banner />
-        {/* <Service/> */}
+        <Service/>
         <TopView/>
+        <MoreInfo/>
         <Blog/>
       </React.Fragment>
     );
