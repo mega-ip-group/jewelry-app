@@ -25,3 +25,27 @@ exports.addUser = async (req, res) => {
     });
   }
 };
+
+exports.login = async (req, res) => {
+  const { email, password } = req.body;
+  const user = await User.findOne({ email });
+  if (user === null) {
+    res.send({
+      login: false,
+      message: "couldn't login",
+    });
+  } else {
+    if (password !== user.password) {
+      res.send({
+        login: false,
+        message: "couldn't login",
+      });
+    } else {
+      res.send({
+        ok: true,
+        message: "login has been success fulll",
+        name: user.firstName,
+      });
+    }
+  }
+};

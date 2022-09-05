@@ -23,9 +23,6 @@ db.once("open", () => {
   console.log("we are connected to DB");
 });
 
-app.get("/", (req, res) => {
-  res.send("hiii");
-});
 const port = process.env.PORT || 3002;
 
 app.listen(port, () => {

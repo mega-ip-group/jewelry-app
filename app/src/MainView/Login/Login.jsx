@@ -1,20 +1,70 @@
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import TextField from "@mui/material/TextField";
 import "./Login.css";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
+import MuiAlert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+const Alert = forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+const URl = "http://localhost:3002";
+
+function Login({ showLoginINfo, setShowLoginInfo }) {
+  let navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [openNotifcation, setOpenNotifcation] = useState(false);
+  const [notification, setNotifcation] = useState("");
+  const [error, setError] = useState("");
   const onSumbitHandler = (e) => {
     e.preventDefault();
+    fetch(URl + "/user/login", {
+      method: "POST", // or 'PUT',
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setOpenNotifcation(true);
+        if (data.ok) {
+          setError("success");
+          setShowLoginInfo({ login: true, name: data.name });
+        } else {
+          setError("error");
+        }
+        const timer = setTimeout(() => {
+          setOpenNotifcation(false);
+          console.log("ehab");
+          clearTimeout(timer);
+        }, 2000);
+        setNotifcation(data.message);
+        if (data.ok) {
+          navigate("/");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
   return (
     <form onSubmit={onSumbitHandler} className="login">
       <div className="login__header">
         <img className="login__logo" src={logo} alt="logo" />
+        <Snackbar open={openNotifcation} autoHideDuration={6000}>
+          <Alert severity={error} sx={{ width: "100%" }}>
+            {notification}
+          </Alert>
+        </Snackbar>
         <Typography className="login__header_text" variant="h6" gutterBottom>
           Login
         </Typography>

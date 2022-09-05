@@ -28,5 +28,5 @@ const userController = require("../Controller/user");
 //   .get(checkRole, userController.getUserVotingHistory);
 
 router.route("/signup").post(userController.addUser);
-
+router.route("/login").post(userController.login);
 module.exports = router;
