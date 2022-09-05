@@ -1,45 +1,60 @@
-import React from 'react';
-import { Container } from '@mui/system';
+import React from "react";
+// import { Col, Row } from 'react-bootstrap';
+import { Container } from "@mui/system";
 // import { useHistory } from 'react-router-dom';
-import './Service.css';
+import "./Service.css";
+import img1 from "../../../images/men-2.png";
+import img2 from "../../../images/women-2.png";
+import img3 from "../../../images/kids-2.png";
 const Service = () => {
-    // const navigate = useHistory();
-    // const handleChange = () => {
-    //     navigate.push(`/jewellery`)
-    // }
-    return (
-        <Container className='custom-service'>
-            <div xs={1} md={3} className="g-4">
-                <div>
-                    <div className='woman-card'>
-                        <div>
-                            <h5 style={{ color: '#f44c7a' }}>Girls Accessories</h5>
-                            <p className='text-muted'>3000+ Products</p>
-                            <button  className='btn-service'>Shop Now <i className="fa-solid fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div className='man-card'>
-                        <div>
+  // const navigate = useHistory();
+  // const handleChange = () => {
+  //     navigate.push(`/jewellery`)
+
+  return (
+    <div className="service">
+      <div className="service__card">
+        <div className="service__info">
+        <h5 style={{ color: "#f44c7a" }}>Men Accessories</h5>
+        <p className="text-muted">100+ Products</p>
+        <button className="btn-service">
+          Shop Now <i className="fa-solid fa-arrow-right"></i>
+        </button>
+        </div>
+        <img src={img1} />
+      </div>
+      <div className="service__card">
+        <div className="service__info">
+        <h5 style={{ color: "#f44c7a" }}>Girls Accessories</h5>
+        <p className="text-muted">100+ Products</p>
+        <button className="btn-service">
+          Shop Now <i className="fa-solid fa-arrow-right"></i>
+        </button>
+        </div>
+        <img src={img2} />
+      </div>
+      <div className="service__card">
+        <div className="service__info">
+        <h5 style={{ color: "#f44c7a" }}>kids Accessories</h5>
+        <p className="text-muted">100+ Products</p>
+        <button className="btn-service">
+          Shop Now <i className="fa-solid fa-arrow-right"></i>
+        </button>
+        </div>
+        <img src={img3} />
+      </div>
+
+      {/* <div>
                             <h5 style={{ color: '#03a98a' }}>Men Accessories</h5>
                             <p className='text-muted'>4000+ Products</p>
-                            <button className='btn-service'>Shop Now <i className="fa-solid fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div className='kid-card'>
-                        <div>
-                            <h5 style={{ color: '#f77527' }}>Kids Accessories</h5>
+                            <button  className='btn-service'>Shop Now <i className="fa-solid fa-arrow-right"></i></button>
+                        </div> */}
+
+      {/* <h5 style={{ color: '#f77527' }}>Kids Accessories</h5>
                             <p className='text-muted'>302+ Kids Products</p>
-                            <button className='btn-service'>Shop Now <i className="fa-solid fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </Container>
-    );
+                            <button  className='btn-service'>Shop Now <i className="fa-solid fa-arrow-right"></i></button> */}
+    </div>
+  );
 };
 
 export default Service;
