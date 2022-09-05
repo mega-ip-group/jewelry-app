@@ -2,11 +2,14 @@ import React from "react";
 import logo from "../../../images/logo.png";
 import HeaderList from "./HeaderList/HeaderList";
 import "./Header.css";
-function Header() {
+function Header({ showLoginINfo, setShowLoginInfo }) {
   return (
     <div className="header">
       <img className="logo" src={logo} alt="" />
-      <HeaderList />
+      <HeaderList
+        showLoginINfo={showLoginINfo}
+        setShowLoginInfo={setShowLoginInfo}
+      />
     </div>
   );
 }

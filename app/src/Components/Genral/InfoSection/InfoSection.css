@@ -2,7 +2,7 @@
 .mt-5gy-2{
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 .mt-5gy-2 >div> img{
     object-fit: contain;

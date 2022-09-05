@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Header from "./Components/Genral/Header/Header";
 import { Routes, Route } from "react-router-dom";
@@ -12,25 +13,36 @@ import TopView from "./Components/Genral/TopView/TopView";
 import MoreInfo from "./Components/Genral/MoreInfo/MoreInfo";
 import InfoSection from "./Components/Genral/InfoSection/InfoSection";
 function App() {
+  const [showLoginINfo, setShowLoginInfo] = useState({ login: false });
   function Home() {
     return (
       <React.Fragment>
         <Banner />
-        <Service/>
-        <InfoSection/>
-        <TopView/>
-        <MoreInfo/>
-        <Blog/>
+        <Service />
+        <InfoSection />
+        <TopView />
+        <MoreInfo />
+        <Blog />
       </React.Fragment>
     );
   }
   return (
     <div className="app">
-      <Header />
+      <Header
+        showLoginINfo={showLoginINfo}
+        setShowLoginInfo={setShowLoginInfo}
+      />
       <Routes>
-      
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={
+            <Login
+              showLoginINfo={showLoginINfo}
+              setShowLoginInfo={setShowLoginInfo}
+            />
+          }
+        />
         <Route path="/signup" element={<Signup />} />
       </Routes>
       <div className="footer__container">
