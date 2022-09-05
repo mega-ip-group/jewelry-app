@@ -38,6 +38,8 @@
     height: 50px;
     margin-top: 10px;
     font-size: 15px;
+    border-radius: 10px;
+  
 }
 
 .btnroundedpy-2bg-lighttext-dark{
@@ -46,4 +48,6 @@
     height: 50px;
     margin-top: 10px;
     font-size: 15px;
+    border-radius: 10px;
+
 }
