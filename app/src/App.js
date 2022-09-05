@@ -16,8 +16,8 @@ function App() {
     return (
       <React.Fragment>
         <Banner />
-        <InfoSection/>
         <Service/>
+        <InfoSection/>
         <TopView/>
         <MoreInfo/>
         <Blog/>

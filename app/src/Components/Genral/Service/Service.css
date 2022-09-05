@@ -1,29 +1,37 @@
-.woman-card,
-.man-card,
-.kid-card {
-    width: 100%;
-    height: 190px;
-    background: #fde9ed url('../../../images/women-2.png');
-    background-size: cover;
-    padding: 15px;
+
+.service__card{
     border-radius: 5px;
-    display: flex;
+    background-color: #f1eced;
+    width: 400px;
+    height: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
     align-items: center;
 }
-
-.man-card {
-    width: 100%;
-    height: 190px;
-    background: #e9f6f4 url('../../../images/men-2.png');
-    background-size: cover;
+.service__info{
+    position: absolute;
+    width: fit-content;
+    padding:10px;
+    gap: 10px;
+    display: grid;
+    top: 50px;
 }
 
-.kid-card {
-    width: 100%;
-    height: 190px;
-    background: #f9f0ea url('../../../images/kids-2.png');
-    background-size: cover;
+.service{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
 }
+.service__card>img{
+    /* object-fit: contain; */
+    width: 100%;
+    position: relative;
+    /* Images default to being inline, inline items cannot have a width, so change to block: */
+    display: block;
+    bottom: -30px;
+    /* The following may be needed if there's still a wierd looking 2-3px gap at the bottom of the image in some browsers: */
+}
+
 
 .btn-service {
     border: none;
@@ -32,3 +40,7 @@
     padding: 8px 15px;
     border-radius: 3px;
 }
+/* .g-4{
+    display: flex;
+    justify-content: space-between;
+} */
