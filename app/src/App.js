@@ -10,11 +10,13 @@ import Service from "./Components/Genral/Service/Service";
 import Blog from "./Components/Genral/Blog/Blog";
 import TopView from "./Components/Genral/TopView/TopView";
 import MoreInfo from "./Components/Genral/MoreInfo/MoreInfo";
+import InfoSection from "./Components/Genral/InfoSection/InfoSection";
 function App() {
   function Home() {
     return (
       <React.Fragment>
         <Banner />
+        <InfoSection/>
         <Service/>
         <TopView/>
         <MoreInfo/>
