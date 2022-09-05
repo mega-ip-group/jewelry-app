@@ -12,6 +12,7 @@ import Blog from "./Components/Genral/Blog/Blog";
 import TopView from "./Components/Genral/TopView/TopView";
 import MoreInfo from "./Components/Genral/MoreInfo/MoreInfo";
 import InfoSection from "./Components/Genral/InfoSection/InfoSection";
+import Cart from "./MainView/Cart/Cart";
 function App() {
   const [showLoginINfo, setShowLoginInfo] = useState({ login: false });
   function Home() {
@@ -44,6 +45,7 @@ function App() {
           }
         />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <div className="footer__container">
         <Footer />
