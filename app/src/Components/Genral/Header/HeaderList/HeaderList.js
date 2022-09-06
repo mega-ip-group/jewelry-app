@@ -26,7 +26,7 @@ function HeaderList({ showLoginINfo, setShowLoginInfo }) {
       <li onClick={HomeHandler}>home</li>
       <li>Shop</li>
 
-      <li>Dashboard</li>
+      {/* <li>Dashboard</li> */}
       <li>Contact</li>
       {showLoginINfo.login ? (
         <li
