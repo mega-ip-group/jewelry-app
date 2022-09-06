@@ -15,7 +15,11 @@ function HeaderList({ showLoginINfo, setShowLoginInfo }) {
   return (
     <ul className="header__list">
       {showLoginINfo.login && (
-        <li>
+        <li
+          onClick={() => {
+            navigate("/cart");
+          }}
+        >
           <ShoppingCartIcon />
         </li>
       )}
