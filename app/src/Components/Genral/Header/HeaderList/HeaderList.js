@@ -12,6 +12,9 @@ function HeaderList({ showLoginINfo, setShowLoginInfo }) {
   const HomeHandler = () => {
     navigate("/");
   };
+  const categoryHandler = () => {
+    navigate("/category");
+  };
   return (
     <ul className="header__list">
       {showLoginINfo.login && (
@@ -24,7 +27,7 @@ function HeaderList({ showLoginINfo, setShowLoginInfo }) {
         </li>
       )}
       <li onClick={HomeHandler}>home</li>
-      <li>Shop</li>
+      <li onClick={categoryHandler}>Category</li>
 
       {/* <li>Dashboard</li> */}
       <li>Contact</li>
