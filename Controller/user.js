@@ -49,3 +49,37 @@ exports.login = async (req, res) => {
     }
   }
 };
+exports.addToCart = async (req, res) => {
+  const { email, url, description, price } = req.body;
+  console.log(email);
+  const user = await User.findOne({ email });
+
+  const cart = user.cart;
+
+  cart.push({
+    url,
+    description,
+    price,
+  });
+  await User.update({ email: email }, { cart: cart })
+    .then(() => {
+      res.send({ ok: true, message: "item hass been add to cart" });
+    })
+    .catch({ ok: false, message: "cannot add item to cart" });
+};
+exports.removeCart = async (req, res) => {
+  const { email } = req.body;
+  const user = await User.findOne({ email });
+
+  await User.update({ email: email }, { cart: [] })
+    .then(() => {
+      res.send({ ok: true, message: "removed" });
+    })
+    .catch({ ok: false, message: "cannot add item to cart" });
+};
+exports.getTheCart = async (req, res) => {
+  const { email } = req.body;
+  const user = await User.findOne({ email });
+  const cart = user.cart;
+  res.send({ ok: true, data: cart });
+};

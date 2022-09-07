@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import { category } from "../../Utils/Utils";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
@@ -16,6 +16,13 @@ import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./Categories.css";
+import MuiAlert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
+
+const Alert = forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+const URl = "http://localhost:3002";
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -37,12 +44,20 @@ export default function CategoryCard({
   price,
 }) {
   const [expanded, setExpanded] = useState(false);
+  const [openNotifcation, setOpenNotifcation] = useState(false);
+  const [notification, setNotifcation] = useState("");
+  const [error, setError] = useState("");
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
     <Card sx={{ maxWidth: 300 }} className="card__categorey">
+      <Snackbar open={openNotifcation} autoHideDuration={6000}>
+        <Alert severity={error} sx={{ width: "100%" }}>
+          {notification}
+        </Alert>
+      </Snackbar>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -69,6 +84,39 @@ export default function CategoryCard({
             if (item != null) {
               setOpenAll(true);
               setCategoryChoosen({ url, description, type, item });
+            } else {
+              fetch(URl + "/user/add-to-cart", {
+                method: "POST", // or 'PUT',
+                cache: "no-cache",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  email: localStorage.getItem("user"),
+                  url: url,
+                  description: description,
+                  type: type,
+                  price: price,
+                }),
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  setOpenNotifcation(true);
+                  if (data.ok) {
+                    setError("success");
+                  } else {
+                    setError("error");
+                  }
+                  const timer = setTimeout(() => {
+                    setOpenNotifcation(false);
+                    console.log("ehab");
+                    clearTimeout(timer);
+                  }, 2000);
+                  setNotifcation(data.message);
+                })
+                .catch((error) => {
+                  console.error("Error:", error);
+                });
             }
           }}
           aria-label="add to favorites"
