@@ -7,6 +7,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     position: relative;
     align-items: center;
+
 }
 .service__info{
     position: absolute;
@@ -21,6 +22,9 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
+    margin-bottom: 10px;
+    font-family: 'Titillium Web', sans-serif;
+    margin-top: 50px;
 }
 .service__card>img{
     /* object-fit: contain; */
@@ -31,8 +35,6 @@
     bottom: -30px;
     /* The following may be needed if there's still a wierd looking 2-3px gap at the bottom of the image in some browsers: */
 }
-
-
 .btn-service {
     border: none;
     background: #2b3144;
