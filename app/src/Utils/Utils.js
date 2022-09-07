@@ -18,6 +18,7 @@ export const category = [
   {
     type: "watchers",
     url: "https://www.nicepng.com/png/detail/15-154351_watches-png-image-watch-png-for-picsart.png",
+    description: "description",
     items: [
       {
         url: "https://www.picng.com/upload/watches/png_watches_73819.png",
@@ -64,6 +65,7 @@ export const category = [
   {
     type: "chain",
     url: "https://p.kindpng.com/picc/s/3-30188_download-jewellery-necklace-png-transparent-image-for-jewellery.png",
+    description: "description",
     items: [
       {
         url: "https://png.pngitem.com/pimgs/s/2-29539_necklace-png-diamond-necklace-png-transparent-png.png",
@@ -104,6 +106,7 @@ export const category = [
   },
   {
     type: "rings",
+    description: "description",
     url: "https://image.similarpng.com/very-thumbnail/2020/10/Two-golden-wedding-rings-on-transparent-PNG.png",
     items: [
       {
