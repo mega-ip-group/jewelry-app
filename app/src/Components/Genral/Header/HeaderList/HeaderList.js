@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./HeaderList.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
@@ -14,6 +14,12 @@ function HeaderList({ showLoginINfo, setShowLoginInfo }) {
   };
   const categoryHandler = () => {
     navigate("/category");
+  }
+  const ShopHandler = () => {
+    navigate("/Shop");
+  };
+  const ContactHandler = () => {
+    navigate("/Contact");
   };
   return (
     <ul className="header__list">
@@ -29,8 +35,9 @@ function HeaderList({ showLoginINfo, setShowLoginInfo }) {
       <li onClick={HomeHandler}>home</li>
       <li onClick={categoryHandler}>Category</li>
 
+
       {/* <li>Dashboard</li> */}
-      <li>Contact</li>
+      <li onClick={ContactHandler} > Contact</li>
       {showLoginINfo.login ? (
         <li
           onClick={() => {
