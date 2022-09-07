@@ -156,4 +156,213 @@ export const category = [
       },
     ],
   },
+  {
+    type: "anklet",
+    description: "description",
+    url: "https://w7.pngwing.com/pngs/555/524/png-transparent-anklet-bracelet-jewellery-bijou-jewellery-miscellaneous-bracelet-fashion.png",
+    items: [
+      {
+        url: "https://www.pngkey.com/png/full/138-1387426_body-ball-chain-anklet-onfig-chain-anklet.png",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://n4.sdlcdn.com/imgs/i/2/z/Womensky-Traditional-Gold-Plated-Pair-SDL713631096-5-31d86.png",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://cdn.shopify.com/s/files/1/2556/2250/products/Gold-infinity-anklet-on-ankle.png?v=1599826247",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://n2.sdlcdn.com/imgs/i/2/z/Womensky-Traditional-Gold-Plated-Pair-SDL713631096-4-985c2.png",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://cdn.shopify.com/s/files/1/0602/8849/9883/products/Watermark-27_1080x.png?v=1640168793",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://cdn.shopify.com/s/files/1/0362/2461/products/custom-charm-anklets.png?v=1630095493",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://cdn.vanguardngr.com/wp-content/uploads/2021/08/Anklets.png",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://cdn.shopify.com/s/files/1/0256/0717/6266/products/gold-pearl-anklet-bracelet-indian-payal-women-layered-dainty-bead-boho-beach-wedding-ankle-chain-handmade-pretty-ponytails-discovered-204.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://n1.sdlcdn.com/imgs/j/s/5/Womensky-silver-bridal-payal-anklet-SDL221911269-1-7452c.png",
+        description: "description",
+        price: 100,
+      },
+    ],
+  },
+  {
+    type: "glasess",
+    description: "description",
+    url: "https://optique-exclusive.pl/data/gfx/pictures/large/6/4/73546_13.jpg",
+    items: [
+      {
+        url: "http://atlas-content-cdn.pixelsquid.com/stock-images/dolce-gabbana-sunglasses-glasses-WEyRvQ7-600.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://www.pngitem.com/pimgs/m/450-4506664_dolce-gabbana-sunglasses-women-hd-png-download.png",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://img.favpng.com/4/12/16/dolce-gabbana-sunglasses-online-shopping-gratis-price-png-favpng-45mXYAykEFZNhZQP72wiHETXS.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://img.favpng.com/7/18/5/goggles-sunglasses-dolce-gabbana-ray-ban-clubmaster-png-favpng-7RPB7whNHatebmqJXn0ey0qeZ.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://www.optikaliolios.gr/wp-content/uploads/2022/01/DOLCE-GABBANA-4386-50188-SUNGLASSES.png",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://www.nicepng.com/png/detail/316-3167667_oakley-kickback-sunglasses-women-sunglasses-dolce-gabbana.png",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://www.otticafranceschetto.it/9031-large_default/dolce-gabbana-dg-4411-50187-54.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs0bXKxJzSPjf-erawwxtk4JTx7fM4F5MxdpQ72jvz3RSOpIuijNgIc9pyBoDqZgMjzsM&usqp=CAU",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://flyclipart.com/thumbs/dolce-gabbana-dg-h-glasses-1571001.png",
+        description: "description",
+        price: 100,
+      },
+    ],
+  },
+  {
+    type: "anklet",
+    description: "description",
+    url: "https://cdn.shopify.com/s/files/1/0044/3757/3703/products/image_7a61bf72-ce6a-40a1-b077-f101110a72dc_1080x.png?v=1629132021",
+    items: [
+      {
+        url: "https://watchesprime.com/wp-content/uploads/2020/02/IMG_6759-1.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://cf2.s3.souqcdn.com/item/46/50/52/8/item_XL_4650528_1213594.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://images.yaoota.com/6QmnLTiBv4BP_fpokImpFcXlpxY=/trim/yaootaweb-production-ae/media/crawledproductimages/26aa1f781ec53c6812759162b5a516af5c3b2e4f.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://pa.namshicdn.com/product/A7/24966W/1-zoom-desktop.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1637859607/523153_96IWG_8745_001_100_0000_Light-Ophidia-GG-continental-wallet.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://media.gucci.com/style/DarkGray_Center_0_0_600x314/1640023287/676150_UF4AX_9099_001_080_0000_Light.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://cdn.fashiola.com/L544775105/gucci-mini-gg-marmont-raffia-wallet-bag.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://cdn1.jolicloset.com/img4/detail4b/2019/06/131278-1/wallets-gucci.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://media.gucci.com/style/DarkGray_Center_0_0_600x314/1623312911/658610_17WAG_1283_001_080_0000_Light.jpg",
+        description: "description",
+        price: 100,
+      },
+    ],
+  },
+  {
+    type: "Hat",
+    description: "description",
+    url: "https://images.stylight.net/image/upload/e_trim/t_web_product_330x440max_nobg/q_auto:eco,f_auto/ahcgtzcjywfozxiwiars.jpg",
+    items: [
+      {
+        url: "https://www.pngitem.com/pimgs/m/14-144786_tommy-hilfiger-mens-ardin-dad-hat-hd-png.png",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://www.pngfind.com/pngs/m/450-4508345_zeta-phi-beta-tommy-hilfiger-inspired-dad-cap.png",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://mobile.yoox.com/images/items/46/46767844JA_14_f.jpg?impolicy=crop&width=387&height=490",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://www.efootwear.eu/media/catalog/product/cache/image/650x650/8/7/8720116547832_0013.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://www.nicepng.com/png/full/140-1405371_tommy-hilfiger-bucket-hat-groovy-bucket-hats.png",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://www.efootwear.eu/media/catalog/product/cache/image/650x650/8/7/8720116117806_0018.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://www.efootwear.eu/media/catalog/product/cache/image/650x650/8/7/8720116547856_0191.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://img.favpng.com/23/8/17/baseball-cap-united-states-make-america-great-again-hat-png-favpng-zKMQMD7ArE7gAQPLuywNHAkiM_t.jpg",
+        description: "description",
+        price: 100,
+      },
+      {
+        url: "https://i5.walmartimages.com/asr/ba39772d-db15-4fb5-828c-bb220fb2ae71.660c30c4bb72e6dbd5786a419085c729.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+        description: "description",
+        price: 1000,
+      },
+    ],
+  },
+  
 ];
