@@ -360,7 +360,7 @@ export const category = [
       {
         url: "https://i5.walmartimages.com/asr/ba39772d-db15-4fb5-828c-bb220fb2ae71.660c30c4bb72e6dbd5786a419085c729.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
         description: "description",
-        price: 100,
+        price: 1000,
       },
     ],
   },
