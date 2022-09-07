@@ -1,48 +1,59 @@
-import { useState } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import Card from "./Card";
 import PropTypes from "prop-types";
-import Button from "@mui/material/Button";
-import Avatar from "@mui/material/Avatar";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemText from "@mui/material/ListItemText";
-import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import PersonIcon from "@mui/icons-material/Person";
-import AddIcon from "@mui/icons-material/Add";
-import Typography from "@mui/material/Typography";
-import { blue } from "@mui/material/colors";
 import { VisaCreditCard as VisaCard } from "react-fancy-visa-card";
-
+import MuiAlert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
+const Alert = forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 const emails = ["username@gmail.com", "user02@gmail.com"];
+const URl = "http://localhost:3002";
 
 function SimpleDialog(props) {
-  const { onClose, selectedValue, open } = props;
+  const { onClose, selectedValue, open, total, setNotifcation, setData } =
+    props;
 
   const handleClose = () => {
     onClose(selectedValue);
   };
 
-  const handleListItemClick = (value) => {
-    onClose(value);
-  };
   const pay = (e, data) => {
-    console.log(e);
-    console.log(data);
+    handleClose();
+    setNotifcation(true);
+    fetch(URl + "/user/removeCart", {
+      method: "POST", // or 'PUT',
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: localStorage.getItem("user"),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.ok) {
+          setData([]);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
     <Dialog onClose={handleClose} open={open}>
       <VisaCard
         onSubmit={pay}
-        submitBtnTxt="Pay $350"
+        submitBtnTxt={`total ${total}$`}
         frontCardColor="linear-gradient(50deg, #f3c680, hsla(179,54%,76%,1))"
       />
     </Dialog>
   );
 }
-
+//removeCart
 SimpleDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
@@ -51,7 +62,11 @@ SimpleDialog.propTypes = {
 function Cart() {
   const [open, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(emails[1]);
-
+  const [data, setData] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [openNotifcation, setOpenNotifcation] = useState(false);
+  const [notification, setNotifcation] = useState("");
+  const [error, setError] = useState("");
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -61,23 +76,61 @@ function Cart() {
     setSelectedValue(value);
   };
 
+  useEffect(() => {
+    fetch(URl + "/user/get-the-cart", {
+      method: "POST", // or 'PUT',
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: localStorage.getItem("user"),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.ok) {
+          let sum = 0;
+          data.data.map((item) => {
+            sum += item.price;
+          });
+          setTotal(sum);
+          setData(data.data);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, [data]);
   return (
     <div className="cat">
-      <button onClick={handleClickOpen} class="buy__now">
+      <Snackbar open={openNotifcation} autoHideDuration={6000}>
+        <Alert severity={"success"} sx={{ width: "100%" }}>
+          Congrats!!
+        </Alert>
+      </Snackbar>
+      <button onClick={handleClickOpen} className="buy__now">
         Buy now
       </button>
-      <label htmlFor="">total</label>
+      <label htmlFor="">{total}$</label>
       <div className="cart__container">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {data.map((item) => {
+          return (
+            <Card
+              url={item.url}
+              description={item.description}
+              price={item.price}
+            />
+          );
+        })}
       </div>
       <SimpleDialog
+        total={total}
         selectedValue={selectedValue}
         open={open}
+        setNotifcation={setNotifcation}
         onClose={handleClose}
+        setData={setData}
       />
     </div>
   );

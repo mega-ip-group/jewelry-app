@@ -37,6 +37,7 @@ function Login({ showLoginINfo, setShowLoginInfo }) {
       .then((data) => {
         setOpenNotifcation(true);
         if (data.ok) {
+          localStorage.setItem("user", email);
           setError("success");
           setShowLoginInfo({ login: true, name: data.name });
         } else {
