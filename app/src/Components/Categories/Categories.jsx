@@ -26,14 +26,18 @@ const ExpandMore = styled((props) => {
   transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest,
   }),
-}));
+}
+));
 
-function Categories() {
-  const [openAll, setOpenAll] = useState(false);
+function Categories({openAll, setOpenAll}) {
+  // const [openAll, setOpenAll] = useState(false);
   const [categoryChoosen, setCategoryChoosen] = useState({});
   console.log(categoryChoosen);
+  
 
   return (
+
+    
     <div className="categories">
       {openAll
         ? categoryChoosen.item.map((elemnt) => {
@@ -58,10 +62,19 @@ function Categories() {
                 description={item.description}
                 type={item.type}
                 item={item.items}
-              />
+                
+              /> 
             );
-          })}
+            
+          }
+          )
+          }
+          
     </div>
+    
+    
+
+    
   );
 }
 

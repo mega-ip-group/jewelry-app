@@ -38,6 +38,8 @@ function Cont() {
 }
 function App() {
   const [showLoginINfo, setShowLoginInfo] = useState({ login: false });
+  const [openAll, setOpenAll] = useState(false);
+
   function Home() {
     return (
       <React.Fragment>
@@ -56,6 +58,7 @@ function App() {
       <Header
         showLoginINfo={showLoginINfo}
         setShowLoginInfo={setShowLoginInfo}
+        openAll={openAll} setOpenAll={setOpenAll}
       />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -70,7 +73,7 @@ function App() {
         />
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/category" element={<Categories />} />
+        <Route path="/category" element={<Categories         openAll={openAll} setOpenAll={setOpenAll} />} />
         <Route path="/Contact" element={<Cont />} />
       </Routes>
       <div className="footer__container">
