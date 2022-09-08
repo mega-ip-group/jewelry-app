@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./HeaderList.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-function HeaderList({ showLoginINfo, setShowLoginInfo }) {
+function HeaderList({ showLoginINfo, setShowLoginInfo,  openAll, setOpenAll}) {
   let navigate = useNavigate();
 
   const LoginHandler = () => {
@@ -13,6 +13,7 @@ function HeaderList({ showLoginINfo, setShowLoginInfo }) {
     navigate("/");
   };
   const categoryHandler = () => {
+    setOpenAll(true);
     navigate("/category");
   }
   const ShopHandler = () => {

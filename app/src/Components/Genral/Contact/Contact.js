@@ -1,21 +1,40 @@
 import { width } from "@mui/system";
 import React, { useState } from "react";
 import "./Contact.css";
-const FORM_ENDPOINT = "";
+import { Link, useNavigate } from "react-router-dom";
+
+
 
 const ContactForm = () => {
+  const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
-  const handleSubmit = () => {
-    setTimeout(() => {
-      setSubmitted(true);
-    }, 100);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/")
+
   };
 
   if (submitted) {
     return (
+      
       <>
+      
         <div className="text-2xl">Thank you!</div>
         <div className="text-md">We'll be in touch soon.</div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <div className="mb-3 pt-0">
+          <button
+            className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            type="submit" onSubmit={()=>{
+              navigate("/")
+            }}>
+            Send a message
+          </button>
+        </div>
       </>
     );
   }
@@ -26,10 +45,7 @@ const ContactForm = () => {
       items-center justify-center">
       <form
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-        action={FORM_ENDPOINT}
         onSubmit={handleSubmit}
-        method="POST"
-        target="_blank"
       >
         <div className="mb-3 pt-0">
           <input

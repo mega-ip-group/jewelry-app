@@ -18,6 +18,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./Categories.css";
 import MuiAlert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
+import Contact from "../Genral/Contact/Contact";
 
 const Alert = forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -61,7 +62,7 @@ export default function CategoryCard({
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            s
           </Avatar>
         }
         action={
@@ -119,14 +120,26 @@ export default function CategoryCard({
                 });
             }
           }}
+          
           aria-label="add to favorites"
         >
           <ShoppingCartIcon />
         </IconButton>
+        {/* <a href="Contact">
+        <div className="mb-3 pt-0">
+          <button
+            className="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            type="submit">
+            You have Qastion
+          </button>
+        </div>
+        </a> */}
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
       </CardActions>
     </Card>
+
+    
   );
 }
