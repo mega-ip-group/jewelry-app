@@ -13,7 +13,6 @@ function HeaderList({ showLoginINfo, setShowLoginInfo,  openAll, setOpenAll}) {
     navigate("/");
   };
   const categoryHandler = () => {
-    setOpenAll(true);
     navigate("/category");
   }
   const ShopHandler = () => {
