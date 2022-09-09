@@ -29,10 +29,11 @@ const ExpandMore = styled((props) => {
 }
 ));
 
-function Categories({openAll, setOpenAll}) {
-  // const [openAll, setOpenAll] = useState(false);
+function Categories({}) {
+  const [openAll, setOpenAll] = useState(false);
   const [categoryChoosen, setCategoryChoosen] = useState({});
   console.log(categoryChoosen);
+  console.log(openAll);
   
 
   return (
