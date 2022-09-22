@@ -14,7 +14,7 @@ function HeaderList({ showLoginINfo, setShowLoginInfo }) {
   };
   const categoryHandler = () => {
     navigate("/category");
-  }
+  };
   const ShopHandler = () => {
     navigate("/Shop");
   };
@@ -34,10 +34,9 @@ function HeaderList({ showLoginINfo, setShowLoginInfo }) {
       )}
       <li onClick={HomeHandler}>home</li>
       <li onClick={categoryHandler}>Category</li>
-
-
+      {/* <li> About Us</li> */}
       {/* <li>Dashboard</li> */}
-      <li onClick={ContactHandler} > Contact</li>
+      <li onClick={ContactHandler}>About Us</li>
       {showLoginINfo.login ? (
         <li
           onClick={() => {

@@ -26,6 +26,9 @@ exports.addUser = async (req, res) => {
   }
 };
 
+
+
+
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -49,6 +52,13 @@ exports.login = async (req, res) => {
     }
   }
 };
+
+
+
+
+
+
+
 exports.addToCart = async (req, res) => {
   const { email, url, description, price } = req.body;
   console.log(email);

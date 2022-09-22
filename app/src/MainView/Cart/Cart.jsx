@@ -12,35 +12,52 @@ const emails = ["username@gmail.com", "user02@gmail.com"];
 const URl = "http://localhost:3002";
 
 function SimpleDialog(props) {
-  const { onClose, selectedValue, open, total, setNotifcation, setData } =
-    props;
-
+  const { onClose, selectedValue, open, total, setData } = props;
+  const [openNotifcation, setOpenNotifcation] = useState(false);
+  const [notification, setNotifcation] = useState("");
+  const [error, setError] = useState("");
   const handleClose = () => {
     onClose(selectedValue);
   };
 
   const pay = (e, data) => {
-    handleClose();
-    setNotifcation(true);
-    fetch(URl + "/user/removeCart", {
-      method: "POST", // or 'PUT',
-      cache: "no-cache",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: localStorage.getItem("user"),
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.ok) {
-          setData([]);
-        }
+    console.log(e);
+    console.log(data);
+    if (
+      !data.creditCardCvv ||
+      !data.creditCardExpMonth ||
+      !data.creditCardExpYear ||
+      !data.creditCardHolderName ||
+      !data.creditCardNumber
+    ) {
+      setOpenNotifcation(true);
+      const timer = setTimeout(() => {
+        setOpenNotifcation(false);
+        clearTimeout(timer);
+      }, 2000);
+    } else {
+      handleClose();
+      setNotifcation(true);
+      fetch(URl + "/user/removeCart", {
+        method: "POST", // or 'PUT',
+        cache: "no-cache",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: localStorage.getItem("user"),
+        }),
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.ok) {
+            setData([]);
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
   };
 
   return (
@@ -50,6 +67,11 @@ function SimpleDialog(props) {
         submitBtnTxt={`total ${total}$`}
         frontCardColor="linear-gradient(50deg, #f3c680, hsla(179,54%,76%,1))"
       />
+      <Snackbar open={openNotifcation} autoHideDuration={6000}>
+        <Alert severity={"error"} sx={{ width: "100%" }}>
+          please fill all the inputs{" "}
+        </Alert>
+      </Snackbar>
     </Dialog>
   );
 }
@@ -104,11 +126,6 @@ function Cart() {
   }, [data]);
   return (
     <div className="cat">
-      <Snackbar open={openNotifcation} autoHideDuration={6000}>
-        <Alert severity={"success"} sx={{ width: "100%" }}>
-          Congrats!!
-        </Alert>
-      </Snackbar>
       <button onClick={handleClickOpen} className="buy__now">
         Buy now
       </button>

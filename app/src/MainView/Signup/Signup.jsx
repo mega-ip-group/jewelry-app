@@ -45,7 +45,6 @@ function Signup() {
         }
         const timer = setTimeout(() => {
           setOpenNotifcation(false);
-          console.log("ehab");
           clearTimeout(timer);
         }, 2000);
         setNotifcation(data.message);
